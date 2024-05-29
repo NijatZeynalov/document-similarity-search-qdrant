@@ -45,6 +45,8 @@ As a demonstration, we are using a dataset of books. Each book has attributes li
 
 # Benefits of Using Qdrant
 High Performance: Qdrant is optimized for handling large datasets and high-dimensional vectors, providing fast and accurate similarity searches.
+
 Ease of Use: Qdrant’s API is straightforward, making it easy to integrate with machine learning models and applications.
+
 Flexibility: Qdrant supports various distance metrics and can be configured to suit different types of similarity searches.
 
