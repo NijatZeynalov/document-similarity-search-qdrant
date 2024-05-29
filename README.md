@@ -1,4 +1,4 @@
- # Document Similarity Search with qdrant
+![project](https://github.com/NijatZeynalov/document-similarity-search-qdrant/assets/31247506/89535bb2-0732-4307-a900-80bdca702515)
 
 This project provides a web application to perform real-time document (book) similarity searches using a pre-trained sentence transformer model. The application is built using Flask for the backend and plain HTML/CSS/JavaScript for the frontend. It leverages the Qdrant vector search engine to handle document embedding and similarity queries.
 
