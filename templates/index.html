@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Similarity Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .results {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .result {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            width: calc(33% - 40px);
+            box-sizing: border-box;
+        }
+        .result img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Document Similarity Search</h1>
+    <input type="text" id="query" placeholder="Enter your query">
+
+    <div class="results" id="results"></div>
+
+    <script>
+        document.getElementById('query').addEventListener('input', function() {
+            const query = this.value;
+            if (query) {
+                fetch('/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `query=${query}`
+                })
+                .then(response => response.json())
+                .then(results => displayResults(results));
+            } else {
+                clearResults();
+            }
+        });
+
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+            results.forEach(result => {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'result';
+                resultDiv.innerHTML = `
+                    <img src="${result.image}" alt="${result.name}">
+                    <p><strong>Name:</strong> ${result.name}</p>
+                    <p><strong>Description:</strong> ${result.description}</p>
+                    <p><strong>Price:</strong> ₼${result.price}</p>
+                    <p><strong>Score:</strong> ${result.score.toFixed(2)}</p>
+                `;
+                resultsContainer.appendChild(resultDiv);
+            });
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
