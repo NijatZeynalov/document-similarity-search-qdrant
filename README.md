@@ -43,6 +43,9 @@ This project provides a web application to perform real-time document (book) sim
 # Demonstration
 As a demonstration, we are using a dataset of books. Each book has attributes like name, description, price, and an image URL. The application showcases how Qdrant can be used to find similar books based on the provided description.
 
+![demo](https://github.com/NijatZeynalov/document-similarity-search-qdrant/assets/31247506/f0ec6156-aea3-457d-846a-a63e24ba469f)
+
+
 # Benefits of Using Qdrant
 High Performance: Qdrant is optimized for handling large datasets and high-dimensional vectors, providing fast and accurate similarity searches.
 
